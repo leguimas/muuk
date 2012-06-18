@@ -1,0 +1,97 @@
+import org.mycontainer.kernel.*;
+import org.mycontainer.kernel.boot.*;
+import org.mycontainer.kernel.deploy.*;
+import org.mycontainer.ejb.*;
+import org.mycontainer.jpa.*;
+import org.mycontainer.datasource.*;
+import org.mycontainer.web.*;
+import org.mycontainer.web.jetty.*;
+
+import javax.naming.InitialContext;
+
+import java.io.*;
+import java.nio.channels.FileChannel;
+
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.PatternLayout;
+
+import br.com.dextra.common.infra.*;
+import br.com.dextra.common.persistence.*;
+
+try {	
+	// logger configuration 
+	Logger root = Logger.getRootLogger();
+	root.setLevel(Level.INFO);
+	ConsoleAppender appender = new ConsoleAppender(new PatternLayout("%-5p [%t]: %m%n"));
+	root.addAppender(appender);
+
+	// some configurations 
+	System.setProperty("java.naming.factory.initial", "org.mycontainer.kernel.naming.MyContainerContextFactory");	
+	System.setProperty("org.mortbay.jetty.Request.maxFormContentSize", "500000");
+
+	builder = new ContainerBuilder();
+	builder.deployVMShutdownHook();
+	SessionInterceptorDeployer sessionInterceptorDeployer = builder.createDeployer(SessionInterceptorDeployer.class);
+	sessionInterceptorDeployer.deploy();
+
+	// JTA configuration
+	MyTransactionManagerDeployer jta = builder.createDeployer(MyTransactionManagerDeployer.class);
+	jta.setName("TransactionManager");
+	jta.setUserTransactionName("UserTransaction");
+	jta.deploy();
+
+	// Datasource configuration
+	DataSourceDeployer ds = builder.createDeployer(DataSourceDeployer.class);
+	ds.setName("java:/SugarDS");
+	ds.setDriver("org.hsqldb.jdbcDriver");
+	String userHome = System.getProperty("user.home");
+	ds.setUrl("jdbc:hsqldb:file:" + userHome + "/muuk/data");
+	ds.deploy();
+
+	// JPA configuration
+	JPADeployer jpa = builder.createDeployer(JPADeployer.class);
+	JPAInfoBuilder info = (JPAInfoBuilder) jpa.getInfo();
+	info.setPersistenceUnitName("sugar-pu");
+	info.setJtaDataSourceName("java:/SugarDS");
+	info.addJarFileUrl(Entidade.class);
+	info.setPersistenceUnitRootUrl(EntidadeRepository.class);
+
+	// Hibernate configuration
+	Properties props = info.getProperties();
+	props.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
+	props.setProperty("hibernate.hbm2ddl.auto", "update");
+	props.setProperty("hibernate.show_sql", "true");
+	props.setProperty("hibernate.transaction.auto_close_session", "true");
+
+	jpa.deploy();
+
+	// Scan a package with an EJB 
+	ScannerDeployer scanner = builder.createDeployer(ScannerDeployer.class);
+	scanner.add(new StatelessScannableDeployer());
+	scanner.add(new MessageDrivenScannableDeployer());
+	scanner.scan(EntidadeRepositoryBean.class);
+	scanner.deploy();
+
+	// Configuring webServer and webAPP
+	JettyServerDeployer webServer = builder.createDeployer(JettyServerDeployer.class);
+        webServer.getServer().setSessionIdManager(new org.mortbay.jetty.servlet.HashSessionIdManager(new Random()));
+	webServer.bindPort(8080);
+	webServer.setName("WebServer");
+
+	ContextWebServer mainContext = webServer.createContextWebServer();
+	mainContext.setContext("/muuk");
+	mainContext.setResources("view/main-web/src/main/webapp/");
+
+	webServer.deploy();
+
+	// Start a very simple database manager (only HSQLDB)
+	DatabaseManager.runManager("java:/SugarDS");
+
+	builder.waitFor();
+
+} catch (Exception e) {
+	e.printStackTrace();
+    	throw e;
+}

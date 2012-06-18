@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.com.dextra.comercial</groupId>
+		<artifactId>muuk</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>br.com.dextra.comercial.muuk</groupId>
+	<artifactId>ear</artifactId>
+	<packaging>ear</packaging>
+	<name>Dextra MUUK - Pacote EAR</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.dextra.comercial.muuk</groupId>
+			<artifactId>main-web</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>br.com.dextra.comercial.muuk</groupId>
+			<artifactId>persistence-jpa</artifactId>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.mycontainer</groupId>
+					<artifactId>mycontainer-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>br.com.dextra.comercial.muuk</groupId>
+			<artifactId>dominio</artifactId>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.mycontainer</groupId>
+					<artifactId>mycontainer-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>muuk</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+					<displayName>Dextra MUUK</displayName>
+					<description>Quadro de Propostas</description>
+					<version>5</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>br.com.dextra.comercial.muuk</groupId>
+							<artifactId>main-web</artifactId>
+							<contextRoot>/muuk</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

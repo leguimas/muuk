@@ -1,0 +1,323 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+					  http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.dextra.comercial</groupId>
+	<artifactId>muuk</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Dextra MUUK</name>
+	<url>https://github.com/leguimas/muuk</url>
+
+	<modules>
+		<module>business</module>
+		<module>view</module>
+		<module>ear</module>
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>mycontainer</id>
+			<url>http://repo.pyrata.org/release/maven2/</url>
+		</repository>
+		<repository>
+			<id>dextra</id>
+			<url>https://mvn.dextra.com.br/repository/releases/</url>
+		</repository>
+		<repository>
+			<id>maven-central</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/central/</url>
+		</repository>
+                <repository>
+                        <id>jboss-releases</id>
+                        <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+                </repository>
+                <repository>
+                        <id>jboss-thirdparty-releases</id>
+                        <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/</url>
+                </repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mycontainer</id>
+			<url>http://repo.pyrata.org/release/maven2/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>maven-mycontainer-plugin</artifactId>
+				<version>${mycontainer-plugin.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.hibernate</groupId>
+						<artifactId>hibernate-core</artifactId>
+						<version>${hibernate-core.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.hibernate</groupId>
+						<artifactId>hibernate-annotations</artifactId>
+						<version>${hibernate-annotations.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.hibernate</groupId>
+						<artifactId>hibernate-entitymanager</artifactId>
+						<version>${hibernate-entitymanager.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>hsqldb</groupId>
+						<artifactId>hsqldb</artifactId>
+						<version>${hsqldb.version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<systemProperties>
+						<systemProperty>
+							<name>org.mortbay.jetty.Request.maxFormContentSize</name>
+							<value>500000</value>
+						</systemProperty>
+					</systemProperties>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/persistence.xml</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- HIBERNATE -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-annotations</artifactId>
+				<version>${hibernate-annotations.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate-entitymanager.version}</version>
+			</dependency>
+
+			<!-- DATABASE -->
+			<dependency>
+				<groupId>hsqldb</groupId>
+				<artifactId>hsqldb</artifactId>
+				<version>${hsqldb.version}</version>
+			</dependency>
+
+			<!-- LOGGER -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j-log4j12.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+
+			<!-- BEAN SHELL -->
+			<dependency>
+				<groupId>org.beanshell</groupId>
+				<artifactId>bsh</artifactId>
+				<version>${bsh.version}</version>
+			</dependency>
+
+			<!-- MUUK -->
+			<dependency>
+				<groupId>br.com.dextra.comercial.muuk</groupId>
+				<artifactId>dominio</artifactId>
+				<type>ejb</type>
+				<version>${pom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.dextra.comercial.muuk</groupId>
+				<artifactId>persistence-jpa</artifactId>
+				<type>ejb</type>
+				<version>${pom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.dextra.comercial.muuk</groupId>
+				<artifactId>main-web</artifactId>
+				<type>war</type>
+				<version>${pom.version}</version>
+			</dependency>
+
+			<!-- JAVAEE -->
+			<dependency>
+				<groupId>javax.ejb</groupId>
+				<artifactId>ejb-api</artifactId>
+				<version>${ejb-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>${persistence-api.version}</version>
+			</dependency>
+
+			<!-- RESTEASY -->
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jaxrs</artifactId>
+				<version>${resteasy-jaxrs.version}</version>
+				<type>jar</type>
+			</dependency>
+
+			<!-- MYCONTAINER -->
+			<dependency>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>mycontainer-ejb</artifactId>
+				<version>${mycontainer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>mycontainer-kernel</artifactId>
+				<version>${mycontainer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>mycontainer-jpa</artifactId>
+				<version>${mycontainer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>mycontainer-datasource</artifactId>
+				<version>${mycontainer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>mycontainer-mail</artifactId>
+				<version>${mycontainer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>mycontainer-annotations</artifactId>
+				<version>${mycontainer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>mycontainer-jms</artifactId>
+				<version>${mycontainer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mycontainer</groupId>
+				<artifactId>mycontainer-web</artifactId>
+				<version>${mycontainer.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.annotation</groupId>
+				<artifactId>jsr250-api</artifactId>
+				<version>${jsr250-api.version}</version>
+			</dependency>
+
+			<!-- JSON -->
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${gson.version}</version>
+				<type>jar</type>
+			</dependency>
+
+			<!-- SECURITY -->
+                        <dependency>
+                                <groupId>br.com.dextra.security</groupId>
+                                <artifactId>dxsecurity</artifactId>
+                                <version>${dxsecurity.version}</version>
+                                <type>jar</type>
+                        </dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/leguimas/muuk/issues/new</url>
+	</issueManagement>
+
+	<!-- Configuracoes de variaveis do maven -->
+	<properties>
+		<bsh.version>2.0b5</bsh.version>
+		<dxsecurity.version>1.0.0</dxsecurity.version>
+		<ejb-api.version>3.0</ejb-api.version>
+		<gson.version>2.2.1</gson.version>
+		<hibernate-annotations.version>3.4.0.GA</hibernate-annotations.version>
+		<hibernate-core.version>3.3.0.GA</hibernate-core.version>
+		<hibernate-entitymanager.version>3.4.0.GA</hibernate-entitymanager.version>
+		<hsqldb.version>1.8.0.10</hsqldb.version>
+		<jsr250-api.version>1.0</jsr250-api.version>
+		<jdk.version>1.6</jdk.version>
+		<log4j.version>1.2.17</log4j.version>
+		<mycontainer.version>1.1.28</mycontainer.version>
+		<mycontainer-plugin.version>1.1.28</mycontainer-plugin.version>
+		<persistence-api.version>1.0</persistence-api.version>
+		<resteasy-jaxrs.version>2.3.4.Final</resteasy-jaxrs.version>
+		<servlet-api.version>2.5</servlet-api.version>
+		<slf4j-api.version>1.6.2</slf4j-api.version>
+		<slf4j-log4j12.version>1.6.2</slf4j-log4j12.version>
+	</properties>
+</project>

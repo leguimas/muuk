@@ -1,0 +1,10 @@
+package br.com.dextra.persistence;
+
+
+public interface EntidadeRepository {
+
+	public <T extends Entidade> T salvar(T entidade);
+
+	public <T extends Entidade> T buscarPorId(Class<T> classe, Long id);
+
+}

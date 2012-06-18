@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.com.dextra.comercial.muuk</groupId>
+		<artifactId>view</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>br.com.dextra.comercial.muuk</groupId>
+	<artifactId>main-web</artifactId>
+	<packaging>war</packaging>
+	<name>Dextra MUUK - Camada de Visualizacao - Web</name>
+
+	<dependencies>
+		<!-- JAVA EE -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- This dependency is not required, but is referenced cause of JVM bug:
+			http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6550655 -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- MUUK -->
+		<dependency>
+			<groupId>br.com.dextra.comercial.muuk</groupId>
+			<artifactId>dominio</artifactId>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- HIBERNATE -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- RESTEASY -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<type>jar</type>
+		</dependency>
+
+		<!-- SECURITY -->
+		<dependency>
+			<groupId>br.com.dextra.security</groupId>
+			<artifactId>dxsecurity</artifactId>
+			<type>jar</type>
+		</dependency>
+
+	</dependencies>
+
+</project>
