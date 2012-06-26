@@ -1,4 +1,4 @@
-import br.com.dextra.common.security.*;
+import br.com.dextra.common.security.login.*;
 import br.com.dextra.security.configuration.FileSystemCertificateRepository;
 
 final int UM_DIA = 86400000;

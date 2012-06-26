@@ -23,7 +23,7 @@ import br.com.dextra.common.persistence.*;
 try {	
 	// logger configuration 
 	Logger root = Logger.getRootLogger();
-	root.setLevel(Level.INFO);
+	root.setLevel(Level.ERROR);
 	ConsoleAppender appender = new ConsoleAppender(new PatternLayout("%-5p [%t]: %m%n"));
 	root.addAppender(appender);
 
@@ -55,8 +55,8 @@ try {
 	JPAInfoBuilder info = (JPAInfoBuilder) jpa.getInfo();
 	info.setPersistenceUnitName("sugar-pu");
 	info.setJtaDataSourceName("java:/SugarDS");
-	info.addJarFileUrl(Entidade.class);
-	info.setPersistenceUnitRootUrl(EntidadeRepository.class);
+	info.addJarFileUrl(BaseEntity.class);
+	info.setPersistenceUnitRootUrl(BaseEntityRepository.class);
 
 	// Hibernate configuration
 	Properties props = info.getProperties();
@@ -71,7 +71,7 @@ try {
 	ScannerDeployer scanner = builder.createDeployer(ScannerDeployer.class);
 	scanner.add(new StatelessScannableDeployer());
 	scanner.add(new MessageDrivenScannableDeployer());
-	scanner.scan(EntidadeRepositoryBean.class);
+	scanner.scan(BaseEntityRepositoryBean.class);
 	scanner.deploy();
 
 	// Configuring webServer and webAPP

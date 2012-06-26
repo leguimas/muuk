@@ -8,15 +8,16 @@
 		<welcome-file>redirect-to-index.html</welcome-file>
 	</welcome-file-list>
 
-	<!-- Resteasy custom injector factory -->
 	<context-param>
 		<param-name>resteasy.injector.factory</param-name>
 		<param-value>br.com.dextra.common.rest.ExtendedInjectorFactory</param-value>
 	</context-param>
+
 	<context-param>
 		<param-name>resteasy.servlet.mapping.prefix</param-name>
 		<param-value>/s</param-value>
 	</context-param>
+
 	<context-param>
 		<param-name>security.configuration.bsh</param-name>
 		<param-value>security.configuration.bsh</param-value>
@@ -28,7 +29,7 @@
 		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>br.com.dextra.config.rest.Application</param-value>
+			<param-value>br.com.dextra.common.rest.config.Application</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
@@ -50,13 +51,13 @@
 		<url-pattern>/s/*</url-pattern>
 	</filter-mapping>
 
-	<!-- Servlet para realizacao de login no LDAP -->
+	<!-- LDAP login servlet - You have to define the ldapserver host -->
 	<servlet>
 		<servlet-name>LDAPAuthenticationServlet</servlet-name>
 		<servlet-class>br.com.dextra.common.security.login.LDAPAuthenticationServlet</servlet-class>
 		<init-param>
 			<param-name>ldapURL</param-name>
-			<param-value>ldap://zico:389/</param-value>
+			<param-value>ldap://ldapserver:389/</param-value>
 		</init-param>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
@@ -65,7 +66,7 @@
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 
-	<!-- Servlet de logout -->
+	<!-- Logout servlet -->
 	<servlet>
 		<servlet-name>LogoutServlet</servlet-name>
 		<servlet-class>br.com.dextra.common.security.login.LogoutServlet</servlet-class>

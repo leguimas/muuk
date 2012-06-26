@@ -6,7 +6,7 @@ import javax.ws.rs.Path;
 import br.com.dextra.security.AuthenticationDataHolder;
 
 @Path("/security")
-public class SecurityRs {
+public class SecurityRS {
 
 	@GET
 	@Path("/logged-user")

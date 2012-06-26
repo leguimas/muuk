@@ -2,25 +2,22 @@ package br.com.dextra.common.persistence;
 
 import java.io.Serializable;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class Entidade implements Serializable {
+public abstract class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 687058405827149076L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private String id;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -40,7 +37,7 @@ public abstract class Entidade implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Entidade other = (Entidade) obj;
+		BaseEntity other = (BaseEntity) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

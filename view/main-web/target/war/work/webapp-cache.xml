@@ -5,6 +5,7 @@
       <path-set>
         <pathsSet class="linked-hash-set">
           <string>WEB-INF/web.xml</string>
+          <string>WEB-INF/classes/br/com/dextra/comercial/muuk/web/opportunity/OpportunityRS.class</string>
           <string>WEB-INF/classes/br/com/dextra/common/json/JSONObject.class</string>
           <string>WEB-INF/classes/br/com/dextra/common/json/JSONUTF8EncodingObject$1.class</string>
           <string>WEB-INF/classes/br/com/dextra/common/json/JSONUTF8EncodingObject$2.class</string>
