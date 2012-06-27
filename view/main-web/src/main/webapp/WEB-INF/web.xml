@@ -5,7 +5,7 @@
 	version="2.5">
 
 	<welcome-file-list>
-		<welcome-file>redirect-to-index.html</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
@@ -44,7 +44,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>AuthenticationFilter</filter-name>
-		<url-pattern>/index.html</url-pattern>
+		<url-pattern>/muuk.html</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>AuthenticationFilter</filter-name>

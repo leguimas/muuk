@@ -12,7 +12,7 @@ public class ErroLoginResponseHandler implements ResponseHandler {
 
 	@Override
 	public void sendResponse(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.sendRedirect(request.getContextPath() + "/login-erro.html");
+		response.sendRedirect(request.getContextPath() + "/login-error.html");
 	}
 
 }

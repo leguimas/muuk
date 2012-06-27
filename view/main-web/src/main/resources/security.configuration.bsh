@@ -2,14 +2,14 @@ import br.com.dextra.common.security.login.*;
 import br.com.dextra.security.configuration.FileSystemCertificateRepository;
 
 final int UM_DIA = 86400000;
-final String DEFAULT_PROVIDER = "RDV";
+final String DEFAULT_PROVIDER = "MUUK";
 
 configuration.setCookieExpiryTimeout(UM_DIA);
 configuration.setExpiryTimeout(UM_DIA);
 configuration.setRenewTimeout(UM_DIA);
 configuration.setMyProvider(DEFAULT_PROVIDER);
 
-FileSystemCertificateRepository certificateRepository = new FileSystemCertificateRepository("$HOME/.rdvKeys/rdv.private.key", "$HOME/.rdvKeys/public");
+FileSystemCertificateRepository certificateRepository = new FileSystemCertificateRepository("$HOME/.muuk/private.key", "$HOME/.muuk/public");
 configuration.setCertificateRepository(certificateRepository);
 
 configuration.setNotAuthenticatedHandler(new LoginResponseHandler());

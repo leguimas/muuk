@@ -11,7 +11,7 @@ public class IndexResponseHandler implements ResponseHandler {
 
 	@Override
 	public void sendResponse(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.sendRedirect(request.getContextPath() + "/index.html");
+		response.sendRedirect(request.getContextPath() + "/muuk.html");
 	}
 
 }
