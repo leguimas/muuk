@@ -61,8 +61,8 @@ try {
 	// Hibernate configuration
 	Properties props = info.getProperties();
 	props.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
-	props.setProperty("hibernate.hbm2ddl.auto", "update");
-	props.setProperty("hibernate.show_sql", "true");
+	props.setProperty("hibernate.hbm2ddl.auto", "validate");
+	props.setProperty("hibernate.show_sql", "false");
 	props.setProperty("hibernate.transaction.auto_close_session", "true");
 
 	jpa.deploy();

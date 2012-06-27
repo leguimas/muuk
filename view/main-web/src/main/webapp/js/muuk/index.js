@@ -1,1 +1,3 @@
 Muuk = {};
+
+Muuk.refreshTimer = null;

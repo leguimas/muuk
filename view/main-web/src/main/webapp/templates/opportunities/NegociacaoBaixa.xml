@@ -1,0 +1,24 @@
+<engine xmlns:hl="http://www.holyavenger.org/holyavenger/1.0">
+
+	<template selector="section.negociacaoBaixa">
+		<h3>Baixa Probabilidade</h3>
+		{for opportunity in opportunities}
+			<div id="${opportunity.id}" class="proposta" style="background: #${opportunity.businessExecutiveColor}">
+				<span class="opportunityName">${opportunity.name}</span>
+				<span class="accountName">${opportunity.accountName}</span>
+				<ul>
+					{if opportunity.preSalesName != ''}
+					<li><img src="${opportunity.preSalesAvatar}" alt="Pré-Venda: ${opportunity.preSalesName}"/></li>
+					{/if}
+					{if opportunity.projectManagerName != ''}
+					<li><img src="${opportunity.projectManagerAvatar}" alt="GP: ${opportunity.projectManagerName}"/></li>
+					{/if}
+					{if opportunity.techinicalTeamName != ''}
+					<li><img src="${opportunity.techinicalTeamAvatar}" alt="Time Técnico: ${opportunity.techinicalTeamName}"/></li>
+					{/if}
+				</ul>
+			</div>
+		{/for}
+	</template>
+
+</engine>

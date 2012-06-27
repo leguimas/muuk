@@ -46,6 +46,7 @@ public class LDAPAuthenticationServlet extends UsernameAndPasswordAuthentication
 		if (! "lulao".equals(username)) {
 			Hashtable<String, String> env = new Hashtable<String, String>();
 			env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+
 			// TODO: it should be an parameter application
 			env.put(Context.PROVIDER_URL, ldapUrl);
 

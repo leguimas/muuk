@@ -19,18 +19,6 @@ limitations under the License.*/
 		loading : true
 	});
 
-	$(window).hashchange(function() {
-		if (!location.hash || location.hash == '#') {
-			location = '#muuk';
-			return;
-		}
-		if (!location.hash || location.hash == '#!') {
-			return;
-		}
-		var hash = location.hash.substring(1);
-		$.holy('./templates/' + hash + '.xml');
-	});
-
 	$(document).ready(function() {
 		$.ajax({
 			url : 'props/version.txt',

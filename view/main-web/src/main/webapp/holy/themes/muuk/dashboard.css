@@ -1,0 +1,113 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+:focus {outline: 0;}
+body {line-height: 1; color: black; background: white;}
+ol, ul {list-style: none;}
+table {border-collapse: separate; border-spacing: 0;}
+caption, th, td {text-align: left; font-weight: normal;}
+blockquote:before, blockquote:after, q:before, q:after {content: "";}
+blockquote, q { quotes: "" "";}
+
+
+/* ##################################
+   ################################## */
+body {
+	background-color: #f7f7f7;
+	font-family: arial, sans-serif;
+	font-size: 14px;
+	line-height: 21px; }
+
+header, div[role="main"], footer {
+	width: 950px;
+	margin: 0 auto; }
+
+header {
+	height: 80px; }
+
+header h1 {
+	width: 300px;
+	display: inline-block;}
+
+header .indicadores {
+	float: right;
+	width: 600px; }
+
+header h1 {
+	font-family: "Handlee", script;
+	font-size: 24px; }
+
+header .indicadores {
+
+}
+
+h2 {
+	font-family: "Handlee", script;
+	font-size: 24px;
+	color: #006d9b; }
+
+section {
+	width: 100%;
+	border: 1px solid #dbdbdb;
+	background-color: white;
+	padding: 15px; }
+
+section h3 {
+	width: 310px;
+	background-color: white;
+	font-size: 18px;
+	font-family: "Andika", sans-serif;
+	color: #006d9b;
+	display: inline-block;
+	border: 1px solid #dbdbdb;
+	padding: 10px 0 10px 55px;
+	margin: 0 0 15px -30px;
+	border-radius: 0 0 0 40px / 0 0 0 5px;
+	box-shadow:  0 0 10px rgba(0, 0, 0, 0.06) inset; 
+	position: relative;
+	display: block; }
+
+section h3:after { 
+    z-index: -2; 
+    position: absolute; 
+    background: transparent; 
+    width: 70%; 
+    height: 55%; 
+    content: ''; 
+    left: 10px;
+    bottom: 20px;
+    -webkit-transform: skew(-15deg) rotate(-6deg); 
+    -moz-transform: skew(-15deg) rotate(-6deg); 
+    transform: skew(-15deg) rotate(-6deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);​ }
+
+.proposta {
+	display: inline-block;
+	background: red;
+	width: 146px;
+	min-height: 82px;
+	border: 1px solid #e0dccc;
+	background: #fdfaec; 
+	padding: 10px 10px 5px 10px; }
+
+.proposta ul {
+	display: block;
+	height: 30px;
+	overflow: hidden;
+	bottom: 0;
+	margin: 10px 0 0 0; }
+
+.proposta ul li a {
+	display: block;
+	height: 28px;
+	overflow: hidden; }
+
+.proposta ul li {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	border: 1px solid #b5b2a5;
+	border-radius: 14px;
+	overflow: hidden; }
+
+.proposta ul li img {
+	max-width: 28px;
+	display: inline; }

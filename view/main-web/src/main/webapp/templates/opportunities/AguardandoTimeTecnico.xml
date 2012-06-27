@@ -1,0 +1,7 @@
+<engine xmlns:hl="http://www.holyavenger.org/holyavenger/1.0">
+
+	<template selector="span#spnTotalAguardandoTime">
+		${opportunities.length}
+	</template>
+
+</engine>

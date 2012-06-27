@@ -7,6 +7,10 @@ Muuk.login.preparePage = function() {
 	$('#txtUsername').focus();
 
 	$('#btnLogin').click(Muuk.login.go);
+
+	if (Muuk.refreshTimer != null) {
+		clearInterval(Muuk.refreshTimer);
+	}
 }
 
 Muuk.login.go = function() {

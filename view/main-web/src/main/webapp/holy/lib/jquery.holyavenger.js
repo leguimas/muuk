@@ -36,7 +36,7 @@ limitations under the License.*/
 			throw 'Parser for <' + tag.nodeName + '> not found.'
 		}
 	}
-	
+
 	$.holyavenger = {
 		parseEngine : function(xmlDoc, context) {
 			if (typeof (xmlDoc) == 'string') {
