@@ -2,6 +2,7 @@ package br.com.dextra.common.persistence;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -11,6 +12,7 @@ public abstract class BaseEntity implements Serializable {
 	private static final long serialVersionUID = 687058405827149076L;
 
 	@Id
+	@Column(name = "ID", columnDefinition="char(36)")
 	private String id;
 
 	public String getId() {
