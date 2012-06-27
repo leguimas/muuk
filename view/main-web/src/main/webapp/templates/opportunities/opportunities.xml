@@ -23,6 +23,7 @@
 	</text>
 
 	<script>
+		$(this.seletor).html('');
 		$(this.seletor).appendTrimpath(this.hvars.dashboard, this);
 	</script>
 

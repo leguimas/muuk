@@ -1,8 +1,12 @@
 package br.com.dextra.comercial.muuk.domain.sales;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.com.dextra.common.persistence.BaseEntity;
 
@@ -60,6 +64,10 @@ public class Opportunity extends BaseEntity {
 
 	@Column(name = "STATUS_CODE")
 	private String statusCode;
+
+	@Column(name = "EXPECTED_CLOSE_DATE")
+	@Temporal(TemporalType.DATE)
+	private Date expectedCloseDate;
 
 	public String getAccountName() {
 		return accountName;
@@ -119,6 +127,10 @@ public class Opportunity extends BaseEntity {
 
 	public String getStatusCode() {
 		return statusCode;
+	}
+
+	public Date getExpectedCloseDate() {
+		return expectedCloseDate;
 	}
 
 }

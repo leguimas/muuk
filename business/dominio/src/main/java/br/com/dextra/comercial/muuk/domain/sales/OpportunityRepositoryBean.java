@@ -18,10 +18,15 @@ public class OpportunityRepositoryBean extends BaseEntityRepositoryBean implemen
 	public List<Opportunity> findByStatus(String status) {
 		StringBuilder hql = new StringBuilder();
 		hql.append(" from   ").append(Opportunity.class.getName());
-		hql.append(" where  statusCode = :status");
+		hql.append(" where  statusCode = :status ");
+		hql.append(" order by expectedCloseDate DESC ");
 
 		Query query = this.em.createQuery(hql.toString());
 		query.setParameter("status", status);
+
+		if (status.equals("Ganhamos") || status.equals("Perdemos") || status.equals("OnHold")) {
+			query.setMaxResults(6);
+		}
 
 		return query.getResultList();
 	}
@@ -32,6 +37,7 @@ public class OpportunityRepositoryBean extends BaseEntityRepositoryBean implemen
 		StringBuilder hql = new StringBuilder();
 		hql.append(" from   ").append(Opportunity.class.getName());
 		hql.append(" where  statusCode in (:status)");
+		hql.append(" order by expectedCloseDate DESC ");
 
 		Query query = this.em.createQuery(hql.toString());
 		query.setParameter("status", status);
