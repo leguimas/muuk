@@ -1,7 +1,7 @@
 <engine xmlns:hl="http://www.holyavenger.org/holyavenger/1.0">
 
-	<template selector="section.ganhamos">
-		<h3>Ganhamos</h3>
+	<text name="dashboard">
+		<h3>${status}</h3>
 		{for opportunity in opportunities}
 			<div id="${opportunity.id}" class="proposta" style="background: #${opportunity.businessExecutiveColor}">
 				<span class="opportunityName">${opportunity.name}</span>
@@ -19,6 +19,10 @@
 				</ul>
 			</div>
 		{/for}
-	</template>
+	</text>
+
+	<script>
+		$(this.seletor).appendTrimpath(this.hvars.dashboard, this);
+	</script>
 
 </engine>
