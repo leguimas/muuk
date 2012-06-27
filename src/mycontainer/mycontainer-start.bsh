@@ -47,8 +47,8 @@ try {
 	ds.setName("java:/SugarDS");
 	ds.setDriver("com.mysql.jdbc.Driver");
 	ds.setUrl("jdbc:mysql://localhost:3306/sugar_db");
-	ds.setUser("sugar");
-	ds.setPass("sugar-password");
+	ds.setUser("root");
+	ds.setPass("root");
 	ds.deploy();
 
 	// JPA configuration

@@ -14,26 +14,7 @@ select op.id ID,
        CONCAT(tt.first_name, ' ', tt.last_name) TECHINICAL_TEAM_NAME,
        tt.avatar TECHINICAL_TEAM_AVATAR,
        tt.color TECHINICAL_TEAM_COLOR,
-       CASE op.sales_stage
-            WHEN 'Em Qualificação' THEN 'EmQualificacao'
-            WHEN 'Desqualificada' THEN 'Desqualificada'
-            WHEN 'Prospecção - Refinamento' THEN 'Refinamento'
-            WHEN 'Prospecção - Ordem de Grandeza' THEN 'OrdemGrandeza'
-            WHEN 'Prospecção - Visita Técnica' THEN 'VisitaTecnica'
-            WHEN 'Prospecção - Aguardando Cliente' THEN 'AguardandoCliente'
-            WHEN 'Aguardando Time Técnico' THEN 'AguardandoTimeTecnico'
-            WHEN 'Proposta - Em Elaboração' THEN 'EmElaboracao'
-            WHEN 'Proposta - Defesa' THEN 'Defesa'
-            WHEN 'Proposta - Negociação Alta' THEN 'NegociacaoAlta'
-            WHEN 'Proposta - Negociação Média' THEN 'NegociacaoMedia'
-            WHEN 'Proposta - Negociação Baixa' THEN 'NegociacaoBaixa'
-            WHEN 'Ganhamos' THEN 'Ganhamos'
-            WHEN 'Perdemos' THEN 'Perdemos'
-            WHEN 'On Hold' THEN 'OnHold'
-            WHEN 'Declinada' THEN 'Declinada'
-            WHEN 'Cancelada' THEN 'Cancelada'
-            ELSE 'Not Mapped Status' END STATUS_CODE,
-       op.sales_stage STATUS_VALUE
+       op.sales_stage STATUS_CODE
 from   opportunities op
        inner join accounts_opportunities acOp on acOp.opportunity_id = op.id and acOp.deleted = false
        inner join accounts ac on acOp.account_id = ac.id and ac.deleted = false

@@ -61,9 +61,6 @@ public class Opportunity extends BaseEntity {
 	@Column(name = "STATUS_CODE")
 	private String statusCode;
 
-	@Column(name = "STATUS_VALUE")
-	private String statusValue;
-
 	public String getAccountName() {
 		return accountName;
 	}
@@ -122,10 +119,6 @@ public class Opportunity extends BaseEntity {
 
 	public String getStatusCode() {
 		return statusCode;
-	}
-
-	public String getStatusValue() {
-		return statusValue;
 	}
 
 }

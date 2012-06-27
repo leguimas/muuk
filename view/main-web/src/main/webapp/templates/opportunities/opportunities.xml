@@ -7,13 +7,14 @@
 				<span class="opportunityName">${opportunity.name}</span>
 				<span class="accountName">${opportunity.accountName}</span>
 				<ul>
-					{if opportunity.preSalesName != ''}
+					<li><img src="${opportunity.businessExecutiveAvatar}" alt="Pré-Venda: ${opportunity.businessExecutiveName}"/></li>
+					{if opportunity.preSalesName}
 					<li><img src="${opportunity.preSalesAvatar}" alt="Pré-Venda: ${opportunity.preSalesName}"/></li>
 					{/if}
-					{if opportunity.projectManagerName != ''}
+					{if opportunity.projectManagerName}
 					<li><img src="${opportunity.projectManagerAvatar}" alt="GP: ${opportunity.projectManagerName}"/></li>
 					{/if}
-					{if opportunity.techinicalTeamName != ''}
+					{if opportunity.techinicalTeamName}
 					<li><img src="${opportunity.techinicalTeamAvatar}" alt="Time Técnico: ${opportunity.techinicalTeamName}"/></li>
 					{/if}
 				</ul>
