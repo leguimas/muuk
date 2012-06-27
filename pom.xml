@@ -81,9 +81,9 @@
 						<version>${hibernate-entitymanager.version}</version>
 					</dependency>
 					<dependency>
-						<groupId>hsqldb</groupId>
-						<artifactId>hsqldb</artifactId>
-						<version>${hsqldb.version}</version>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql-connector-java.version}</version>
 					</dependency>
 				</dependencies>
 				<configuration>
@@ -158,6 +158,11 @@
 				<artifactId>hsqldb</artifactId>
 				<version>${hsqldb.version}</version>
 			</dependency>
+			<dependency>
+                                <groupId>mysql</groupId>
+                                <artifactId>mysql-connector-java</artifactId>
+                                <version>${mysql-connector-java.version}</version>
+                        </dependency>
 
 			<!-- LOGGER -->
 			<dependency>
@@ -314,6 +319,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<mycontainer.version>1.1.28</mycontainer.version>
 		<mycontainer-plugin.version>1.1.28</mycontainer-plugin.version>
+		<mysql-connector-java.version>5.1.20</mysql-connector-java.version>
 		<persistence-api.version>1.0</persistence-api.version>
 		<resteasy-jaxrs.version>2.3.4.Final</resteasy-jaxrs.version>
 		<servlet-api.version>2.5</servlet-api.version>

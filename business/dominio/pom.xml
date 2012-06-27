@@ -19,13 +19,6 @@
 	<name>Dextra MUUK - Camada de Negocio - Dominio</name>
 
 	<dependencies>
-		<!-- HSQLDB -->
-		<dependency>
-			<groupId>hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- JSON -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
