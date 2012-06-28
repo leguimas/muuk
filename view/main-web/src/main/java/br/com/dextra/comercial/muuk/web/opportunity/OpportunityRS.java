@@ -15,7 +15,7 @@ import javax.ws.rs.PathParam;
 import br.com.dextra.comercial.muuk.domain.sales.Opportunity;
 import br.com.dextra.comercial.muuk.domain.sales.OpportunityBusinessExecutiveComparator;
 import br.com.dextra.comercial.muuk.domain.sales.OpportunityRepository;
-import br.com.dextra.common.json.JSONObject;
+import br.com.dextra.common.json.JSONUTF8EncodingObject;
 
 @Path("/opportunity")
 public class OpportunityRS {
@@ -29,7 +29,7 @@ public class OpportunityRS {
 		List<Opportunity> opportunitiesList = repository.findByStatus(status);
 		Collections.sort(opportunitiesList, new OpportunityBusinessExecutiveComparator());
 
-		return new JSONObject(opportunitiesList).toJson();
+		return new JSONUTF8EncodingObject(opportunitiesList).toJson();
 	}
 
 	@GET
@@ -57,7 +57,7 @@ public class OpportunityRS {
 			Collections.sort(opportunitiesMap.get(opportunityMapKey), new OpportunityBusinessExecutiveComparator());
 		}
 
-		return new JSONObject(opportunitiesList).toJson();
+		return new JSONUTF8EncodingObject(opportunitiesList).toJson();
 	}
 
 	private List<String> getMuukStates() {
