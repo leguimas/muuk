@@ -14,15 +14,16 @@ select op.id ID,
        CONCAT(tt.first_name, ' ', tt.last_name) TECHINICAL_TEAM_NAME,
        tt.avatar TECHINICAL_TEAM_AVATAR,
        tt.color TECHINICAL_TEAM_COLOR,
-       op.sales_stage STATUS_CODE
+       op.sales_stage STATUS_CODE,
+       op.date_closed EXPECTED_CLOSE_DATE
 from   opportunities op
        inner join accounts_opportunities acOp on acOp.opportunity_id = op.id and acOp.deleted = false
        inner join accounts ac on acOp.account_id = ac.id and ac.deleted = false
        inner join users us on op.assigned_user_id = us.id and us.deleted = false
        left join users_cstm usCt on usCt.id_c = us.id
-       left join opportunities_dxsug_gp_1_c opGp on opGp.opportunities_dxsug_gp_1opportunities_ida = op.id and opGp.deleted = false
-       left join dxsug_gp gp on opGp.opportunities_dxsug_gp_1dxsug_gp_idb = gp.id and gp.deleted = false
-       left join opportunities_dxsug_prevenda_1_c opPv on opPv.opportunities_dxsug_prevenda_1opportunities_ida = op.id and opPv.deleted = false
-       left join dxsug_prevenda pv on opPv.opportunities_dxsug_prevenda_1dxsug_prevenda_idb = pv.id and pv.deleted = false
-       left join opportunities_dxsug_timetecnico_1_c opTt on opTt.opportunities_dxsug_timetecnico_1opportunities_ida = op.id and opTt.deleted = false
-       left join dxsug_timetecnico tt on opTt.opportunities_dxsug_timetecnico_1dxsug_timetecnico_idb = tt.id and tt.deleted = false;
+       left join dxsug_gp_opportunities_c opGp on opGp.dxsug_gp_opportunitiesopportunities_idb = op.id and opGp.deleted = false
+       left join dxsug_gp gp on opGp.dxsug_gp_opportunitiesdxsug_gp_ida = gp.id and gp.deleted = false
+       left join dxsug_prevenda_opportunities_c opPv on opPv.dxsug_prevenda_opportunitiesopportunities_idb = op.id and opPv.deleted = false
+       left join dxsug_prevenda pv on opPv.dxsug_prevenda_opportunitiesdxsug_prevenda_ida = pv.id and pv.deleted = false
+       left join dxsug_timetecnico_opportunities_c opTt on opTt.dxsug_timetecnico_opportunitiesopportunities_idb = op.id and opTt.deleted = false
+       left join dxsug_timetecnico tt on opTt.dxsug_timetecnico_opportunitiesdxsug_timetecnico_ida = tt.id and tt.deleted = false;
