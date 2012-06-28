@@ -1,0 +1,68 @@
+<engine xmlns:hl="http://www.holyavenger.org/holyavenger/1.0">
+
+	<template selector="head title">
+		${messages.browserTitle}
+	</template>
+
+	<template selector="body">
+		<header>
+			<h1>${messages.dashboard_title}</h1>
+
+			<ul class="indicadores">
+				<li class="aguardando-time"><span>${messages.dashboard_aguardandoTime}</span> <span id="spnTotalAguardandoTime"></span></li>
+			</ul>
+		</header>
+
+		<div role="main">
+			<h2 class="prospeccao">${messages.dashboard_prospeccao}</h2>
+			<section class="refinamento">
+			</section>
+
+			<section class="ordemGrandeza">
+			</section>
+
+			<section class="visitaTecnica">
+			</section>
+
+			<section class="aguardandoCliente">
+			</section>
+
+			<h2 class="opportunity">${messages.dashboard_proposta}</h2>
+			<section class="emElaboracao">
+			</section>
+
+			<section class="defesa">
+			</section>
+
+			<h2 class="negociacao">${messages.dashboard_negociacao}</h2>
+			<section class="negociacaoAlta">
+			</section>
+
+			<section class="negociacaoMedia">
+			</section>
+
+			<section class="negociacaoBaixa">
+			</section>
+
+			<h2 class="desfecho">${messages.dashboard_desfecho}</h2>
+			<section class="ganhamos">
+			</section>
+
+			<section class="perdemos">
+			</section>
+
+			<section class="onHold">
+			</section>
+
+		</div>
+
+		<footer>
+		</footer>
+	</template>
+
+	<script>
+    	Muuk.dashboard.load();
+    	Muuk.refreshTimer = setInterval("Muuk.dashboard.load();", 600000); // refresh every 10 minutes
+	</script>
+
+</engine>

@@ -1,0 +1,18 @@
+{ "messages": {
+	"browserTitle": ".:. Muuk - Dashboard Comercial .:.",
+	"login_username": "Usuário",
+	"login_password": "Senha",
+	"login_login": "login",
+	"login_error_invalidLogin": "Não foi possível realizar o login com o usuário / senha informados.",
+	"login_error_usernameEmpty": "Para realizar o login é necessário informar um usuário.",
+	"dashboard_title": "Dashboard Comercial",
+	"dashboard_aguardandoTime": "Aguardando Time",
+	"dashboard_prospeccao": "Prospeção",
+	"dashboard_proposta": "Proposta",
+	"dashboard_negociacao": "Negociação",
+	"dashboard_desfecho": "Desfecho",
+	"dashboard_businessExecutive": "Executivo de Negócio",
+	"dashboard_preSales": "Pré-Venda",
+	"dashboard_projectManager": "GP",
+	"dashboard_techinicalTeam": "Time Técnico"
+} }

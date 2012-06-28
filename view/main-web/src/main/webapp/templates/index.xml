@@ -1,0 +1,11 @@
+<engine xmlns:hl="http://www.holyavenger.org/holyavenger/1.0">
+
+	<template selector="head title">
+		${messages.browserTitle}
+	</template>
+
+	<script>
+		window.location = "muuk.html";
+	</script>
+
+</engine>

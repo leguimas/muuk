@@ -1,0 +1,7 @@
+<engine xmlns:hl="http://www.holyavenger.org/holyavenger/1.0">
+
+	<script>
+		$('.message').message(this.messages.login_error_invalidLogin, 'error', true);
+	</script>
+
+</engine>

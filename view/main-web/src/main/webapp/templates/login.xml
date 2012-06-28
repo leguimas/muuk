@@ -1,0 +1,33 @@
+<engine xmlns:hl="http://www.holyavenger.org/holyavenger/1.0">
+
+	<template selector="head title">
+		${messages.browserTitle}
+	</template>
+
+	<template selector="#content">
+		<div id="login">
+			<form id="frmLogin" action="login" method="post">
+				<fieldset>
+					<ul>
+						<li class="require">
+							<label for="txtUsername">${messages.login_username}:</label>
+							<input id="txtUsername" name="username" type="text" />
+						</li>
+						<li class="require">
+							<label for="txtPassWord">${messages.login_password}:</label>
+							<input id="txtPassword" name="password" type="password" />
+						</li>
+						<li class="buttons">
+							<button type="button" id="btnLogin" class="btUser">${messages.login_login}</button>
+						</li>
+					</ul>
+				</fieldset>
+			</form>
+		</div>
+	</template>
+
+	<script>
+		Muuk.login.preparePage();
+	</script>
+
+</engine>

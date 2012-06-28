@@ -20,7 +20,7 @@ Muuk.login.go = function() {
 	username = $.trim($('#txtUsername').val());
 
 	if (username == "") {
-		$('.message').message('Para realizar o login é necessário informar um usuário.', 'error', true);
+		$('.message').message($.i18n.messages.login_error_usernameEmpty, 'error', true);
 		Muuk.login.enable();
 		return false;
 	} else {
