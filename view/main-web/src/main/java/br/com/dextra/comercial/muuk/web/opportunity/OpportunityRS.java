@@ -11,11 +11,12 @@ import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 
 import br.com.dextra.comercial.muuk.domain.sales.Opportunity;
 import br.com.dextra.comercial.muuk.domain.sales.OpportunityBusinessExecutiveComparator;
 import br.com.dextra.comercial.muuk.domain.sales.OpportunityRepository;
-import br.com.dextra.common.json.JSONUTF8EncodingObject;
+import br.com.dextra.common.json.JSONObject;
 
 @Path("/opportunity")
 public class OpportunityRS {
@@ -25,15 +26,17 @@ public class OpportunityRS {
 
 	@GET
 	@Path("/all/{status}")
+	@Produces("application/json;charset=UTF-8")
 	public String findOpportunitiesByStatus(@PathParam("status") String status) {
 		List<Opportunity> opportunitiesList = repository.findByStatus(status);
 		Collections.sort(opportunitiesList, new OpportunityBusinessExecutiveComparator());
 
-		return new JSONUTF8EncodingObject(opportunitiesList).toJson();
+		return new JSONObject(opportunitiesList).toJson();
 	}
 
 	@GET
 	@Path("/all/muuk-states")
+	@Produces("application/json;charset=UTF-8")
 	public String findOpportunitiesMuukStates() {
 		Map<String, List<Opportunity>> opportunitiesMap = new HashMap<String, List<Opportunity>>();
 
@@ -57,7 +60,7 @@ public class OpportunityRS {
 			Collections.sort(opportunitiesMap.get(opportunityMapKey), new OpportunityBusinessExecutiveComparator());
 		}
 
-		return new JSONUTF8EncodingObject(opportunitiesList).toJson();
+		return new JSONObject(opportunitiesList).toJson();
 	}
 
 	private List<String> getMuukStates() {
