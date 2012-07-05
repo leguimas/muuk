@@ -1,3 +1,61 @@
-
 .simpleTheme #wrapper { margin: 1px }
 
+body {
+	background: #82b4a7; }
+
+#login {	
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -200px; 
+	background: white; 
+	box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2); }
+
+form#frmLogin {
+	border: none;
+	margin: 0; }
+
+form#frmLogin fieldset {
+	border: none; }
+
+form#frmLogin fieldset ul li.require {
+	margin: 0;
+	padding: 0 0 15px 0; }
+
+form#frmLogin fieldset ul li.require label {
+	display: block;
+    text-align: left;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #808080;
+    margin: 0 0 5px; }
+
+form#frmLogin fieldset ul li.require span.required {
+	display: none; }
+
+.require input {
+	display: block;
+	width: 370px;
+	height: 20px; }
+
+form#frmLogin fieldset ul li.buttons {
+	margin: 0; }
+
+form#frmLogin fieldset ul li.buttons button {
+	background: #A6BFF6;
+    border: 1px solid #7A87A4;
+    color: #434B5C;
+    font-family: Tahoma;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 4px 0 0;
+    padding: 10px 0;
+    text-transform: uppercase;
+    width: 100%; }
+
+form#frmLogin fieldset ul li.buttons button:hover {
+	background: #c9d8f8; }
