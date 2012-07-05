@@ -8,47 +8,66 @@ blockquote:before, blockquote:after, q:before, q:after {content: "";}
 blockquote, q { quotes: "" "";}
 
 
-/* ##################################
+/* ################################## 
    ################################## */
 body {
-	background-color: #f7f7f7;
+	background-color: #F2F2F2;
 	font-family: arial, sans-serif;
-	font-size: 14px;
-	line-height: 21px; }
+	font-size: 14px; }
 
 header, div[role="main"], footer {
 	width: 950px;
 	margin: 0 auto; }
 
 header {
+	text-align: center;
 	height: 80px; }
 
 header h1 {
 	width: 300px;
 	display: inline-block;}
 
-header .indicadores {
-	float: right;
-	width: 600px; }
-
 header h1 {
+	display: none;
 	font-family: "Handlee", script;
 	font-size: 24px; }
 
 header .indicadores {
+	height: 70px;
+	display: inline-block;
+	background: white;
+	width: 400px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0,0,0, .15); }
 
-}
+header .indicadores li.aguardando-time span {
+	color: rgba(0, 0, 0, 0.3);
+    display: block;
+    padding: 10px 0 0;
+    text-transform: uppercase; }
 
+header .indicadores li.aguardando-time span#spnTotalAguardandoTime {
+	display: block;
+	text-transform: none;
+	padding: 0;
+    font-size: 26px;
+    margin: 5px 0 0;
+    color: rgba(0,0,0, .7); }
+   
 h2 {
 	font-family: "Handlee", script;
 	font-size: 24px;
-	color: #006d9b; }
+	color: #505038;
+	background: rgba(255, 255, 0, 0.2);
+    margin: 0 0 10px -5%;
+    padding: 9px 5% 7px 5%;
+    width: 100%; }
 
 section {
 	width: 100%;
-	border: 1px solid #dbdbdb;
-	background-color: white;
-	padding: 15px; }
+	padding: 0 0 10px 0;
+	margin: 0 0 10px 0;
+	border-bottom: 1px solid rgba(0,0,0, .15); }
 
 section h3 {
 	width: 310px;
@@ -58,42 +77,59 @@ section h3 {
 	color: #006d9b;
 	display: inline-block;
 	border: 1px solid #dbdbdb;
-	padding: 10px 0 10px 55px;
+	padding: 7px 0 10px 55px;
 	margin: 0 0 15px -30px;
-	border-radius: 0 0 0 40px / 0 0 0 5px;
-	box-shadow:  0 0 10px rgba(0, 0, 0, 0.06) inset; 
+	border-radius: 0 0 0 15px / 0 0 0 5px;
+	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05); 
 	position: relative;
 	display: block; }
 
-section h3:after { 
-    z-index: -2; 
-    position: absolute; 
-    background: transparent; 
-    width: 70%; 
-    height: 55%; 
-    content: ''; 
-    left: 10px;
-    bottom: 20px;
-    -webkit-transform: skew(-15deg) rotate(-6deg); 
-    -moz-transform: skew(-15deg) rotate(-6deg); 
-    transform: skew(-15deg) rotate(-6deg);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);​ }
-
 .proposta {
 	display: inline-block;
-	background: red;
+	vertical-align: top;
 	width: 146px;
-	min-height: 82px;
-	border: 1px solid #e0dccc;
+	min-height: 90px;
 	background: #fdfaec; 
-	padding: 10px 10px 5px 10px; }
+	padding: 10px 10px 5px 10px;
+	position: relative;
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.12);
+	top: 0;
+	-webkit-transition: top 0.2s;
+    -moz-transition: top 0.2s; }
+
+.proposta .opportunityName {
+	display: block;
+	font-size: 13px;
+	margin: 0 0 8px 0;
+	color: rgba(0, 0, 0, .7); }
+
+.proposta .accountName {
+	display: block;
+	font-size: 10px;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, .6); }
+
+.proposta:hover {
+	top: -10px; }
+
+.proposta:before {
+	background: transparent;
+	pointer-events: none;
+    border: 1px solid black;
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    opacity: .15; }
 
 .proposta ul {
 	display: block;
 	height: 30px;
 	overflow: hidden;
 	bottom: 0;
-	margin: 10px 0 0 0; }
+	margin: 10px 0 2px 0; }
 
 .proposta ul li a {
 	display: block;
@@ -104,10 +140,36 @@ section h3:after {
 	display: inline-block;
 	width: 28px;
 	height: 28px;
-	border: 1px solid #b5b2a5;
+	border: 1px solid rgba(0, 0, 0, .4);
 	border-radius: 14px;
 	overflow: hidden; }
 
 .proposta ul li img {
 	max-width: 28px;
 	display: inline; }
+
+@media screen and (min-width: 1920px) {
+	div[role="main"] {
+    	width: 100%; }
+
+	h2 {
+		padding: 9px 0 7px 25px;
+		margin: 0 0 10px; }
+
+	section {
+  		display: inline-block;
+		width: 46%;
+		margin: 0 0 5px 1%;
+		border-bottom: none; }
+
+	.secao > section:nth-of-type(2n) {
+		margin: 0 0 0 6%; }
+
+	section h3 {
+		padding: 7px 0 10px 25px;
+		margin: 0 0 15px; }
+
+	section.ganhamos, section.perdemos, section.onHold {
+		width: 30%;
+		margin: 0 0 0 3% !important; } 
+}

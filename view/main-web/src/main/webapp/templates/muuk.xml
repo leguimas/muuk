@@ -14,46 +14,53 @@
 		</header>
 
 		<div role="main">
-			<h2 class="prospeccao">${messages.dashboard_prospeccao}</h2>
-			<section class="refinamento">
-			</section>
+			<div class="secao">
+				<h2 class="prospeccao">${messages.dashboard_prospeccao}</h2>
+				<section class="refinamento">
+				</section>
 
-			<section class="ordemGrandeza">
-			</section>
+				<section class="ordemGrandeza">
+				</section>
 
-			<section class="visitaTecnica">
-			</section>
+				<section class="visitaTecnica">
+				</section>
 
-			<section class="aguardandoCliente">
-			</section>
+				<section class="aguardandoCliente">
+				</section>
+			</div>
+			
+			<div class="secao">
+				<h2 class="opportunity">${messages.dashboard_proposta}</h2>
+				<section class="emElaboracao">
+				</section>
 
-			<h2 class="opportunity">${messages.dashboard_proposta}</h2>
-			<section class="emElaboracao">
-			</section>
+				<section class="defesa">
+				</section>
+			</div>
+			
+			<div class="secao">
+				<h2 class="negociacao">${messages.dashboard_negociacao}</h2>
+				<section class="negociacaoAlta">
+				</section>
 
-			<section class="defesa">
-			</section>
+				<section class="negociacaoMedia">
+				</section>
 
-			<h2 class="negociacao">${messages.dashboard_negociacao}</h2>
-			<section class="negociacaoAlta">
-			</section>
+				<section class="negociacaoBaixa">
+				</section>
+			</div>
+			
+			<div class="secao">
+				<h2 class="desfecho">${messages.dashboard_desfecho}</h2>
+				<section class="ganhamos">
+				</section>
 
-			<section class="negociacaoMedia">
-			</section>
+				<section class="perdemos">
+				</section>
 
-			<section class="negociacaoBaixa">
-			</section>
-
-			<h2 class="desfecho">${messages.dashboard_desfecho}</h2>
-			<section class="ganhamos">
-			</section>
-
-			<section class="perdemos">
-			</section>
-
-			<section class="onHold">
-			</section>
-
+				<section class="onHold">
+				</section>
+			</div>
 		</div>
 
 		<footer>
