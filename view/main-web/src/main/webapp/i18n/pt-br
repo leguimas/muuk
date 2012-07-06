@@ -1,5 +1,6 @@
 { "messages": {
-	"browserTitle": ".:. Muuk - Dashboard Comercial .:.",
+	"browserTitle": ".:. Muuk - Board Comercial .:.",
+	"muukTitle" : "Muuk - Board Comercial",
 	"login_username": "Usuário",
 	"login_password": "Senha",
 	"login_login": "login",

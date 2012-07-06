@@ -4,4 +4,11 @@
 		${opportunities.length}
 	</template>
 
+	<script>
+		if ( this.opportunities.length >= 1 ) {
+			$("header").addClass("alerta");
+		} else {
+			$("header").removeClass("alerta");
+		}
+	</script>
 </engine>

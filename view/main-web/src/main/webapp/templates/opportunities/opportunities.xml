@@ -1,7 +1,7 @@
 <engine xmlns:hl="http://www.holyavenger.org/holyavenger/1.0">
 
 	<text name="dashboard">
-		<h3>${status}</h3>
+		<h3>${status} <span id="quantity${status}"></span></h3>
 		{for opportunity in opportunities}
 			<div id="${opportunity.id}" class="proposta" style="background: #${opportunity.businessExecutiveColor}">
 				<span class="opportunityName">${opportunity.name}</span>
@@ -25,6 +25,11 @@
 	<script>
 		$(this.seletor).html('');
 		$(this.seletor).appendTrimpath(this.hvars.dashboard, this);
+
+		alert(this.status);
+		if ( this.status = 'Ganhamos' ) {
+			$("#quantityGanhamos").html('(' + this.opportunities.length + ')');
+		}
 	</script>
 
 </engine>

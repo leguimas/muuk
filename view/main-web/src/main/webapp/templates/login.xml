@@ -6,6 +6,10 @@
 
 	<template selector="#content">
 		<div id="login">
+			<div class="banner">
+				<img src="holy/themes/muuk/imgs/dextra.png" class="dextra" />
+				<h1>${messages.muukTitle}</h1>
+			</div>
 			<form id="frmLogin" action="login" method="post">
 				<fieldset>
 					<ul>

@@ -3,14 +3,31 @@
 body {
 	background: #82b4a7; }
 
-#login {	
+#content h1 {
+	font-family: "Andika", sans-serif;
+	font-size: 20px;
+	display: inline-block;
+	width: 100%;
+}
+
+#content .dextra {
+	margin-top: 10px;
+	display: inline-block;
+}
+
+.banner {
+	display: block;
+	text-align: center;
+}
+
+#login {
 	position: absolute;
 	width: 400px;
-	height: 200px;
-	top: 50%;
+	height: 283px;
+	top: 40%;
 	left: 50%;
-	margin: -100px 0 0 -200px; 
-	background: white; 
+	margin: -100px 0 0 -200px;
+	background: white;
 	box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2); }
 
 form#frmLogin {
