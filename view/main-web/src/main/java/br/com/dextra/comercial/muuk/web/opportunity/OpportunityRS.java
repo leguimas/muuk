@@ -1,7 +1,9 @@
 package br.com.dextra.comercial.muuk.web.opportunity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +31,17 @@ public class OpportunityRS {
 	@Produces("application/json;charset=UTF-8")
 	public String findOpportunitiesByStatus(@PathParam("status") String status) {
 		List<Opportunity> opportunitiesList = repository.findByStatus(status);
+		Collections.sort(opportunitiesList, new OpportunityBusinessExecutiveComparator());
+
+		return new JSONObject(opportunitiesList).toJson();
+	}
+
+	@GET
+	@Path("/year/{status}")
+	@Produces("application/json;charset=UTF-8")
+	public String findOpportunitiesByStatusInYear(@PathParam("status") String status) {
+		Integer year = new GregorianCalendar().get(Calendar.YEAR);
+		List<Opportunity> opportunitiesList = repository.findByStatusAndYear(status, year);
 		Collections.sort(opportunitiesList, new OpportunityBusinessExecutiveComparator());
 
 		return new JSONObject(opportunitiesList).toJson();

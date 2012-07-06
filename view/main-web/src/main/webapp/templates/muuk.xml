@@ -4,67 +4,61 @@
 		${messages.browserTitle}
 	</template>
 
-	<template selector="body">
-		<header>
-			<h1>${messages.dashboard_title}</h1>
+	<template selector="header">
+		<h1>${messages.dashboard_title}</h1>
+		<ul class="indicadores">
+			<li class="aguardando-time"><span>${messages.dashboard_aguardandoTime}</span> <span id="spnTotalAguardandoTime"></span></li>
+		</ul>
+	</template>
 
-			<ul class="indicadores">
-				<li class="aguardando-time"><span>${messages.dashboard_aguardandoTime}</span> <span id="spnTotalAguardandoTime"></span></li>
-			</ul>
-		</header>
+	<template selector="#mainDiv">
+		<div class="secao">
+			<h2 class="prospeccao">${messages.dashboard_prospeccao}</h2>
+			<section class="refinamento">
+			</section>
 
-		<div role="main">
-			<div class="secao">
-				<h2 class="prospeccao">${messages.dashboard_prospeccao}</h2>
-				<section class="refinamento">
-				</section>
+			<section class="ordemGrandeza">
+			</section>
 
-				<section class="ordemGrandeza">
-				</section>
+			<section class="visitaTecnica">
+			</section>
 
-				<section class="visitaTecnica">
-				</section>
-
-				<section class="aguardandoCliente">
-				</section>
-			</div>
-			
-			<div class="secao">
-				<h2 class="opportunity">${messages.dashboard_proposta}</h2>
-				<section class="emElaboracao">
-				</section>
-
-				<section class="defesa">
-				</section>
-			</div>
-			
-			<div class="secao">
-				<h2 class="negociacao">${messages.dashboard_negociacao}</h2>
-				<section class="negociacaoAlta">
-				</section>
-
-				<section class="negociacaoMedia">
-				</section>
-
-				<section class="negociacaoBaixa">
-				</section>
-			</div>
-			
-			<div class="secao">
-				<h2 class="desfecho">${messages.dashboard_desfecho}</h2>
-				<section class="ganhamos">
-				</section>
-
-				<section class="perdemos">
-				</section>
-
-				<section class="onHold">
-				</section>
-			</div>
+			<section class="aguardandoCliente">
+			</section>
 		</div>
 
-		<footer>
-		</footer>
+		<div class="secao">
+			<h2 class="opportunity">${messages.dashboard_proposta}</h2>
+			<section class="emElaboracao">
+			</section>
+
+			<section class="defesa">
+			</section>
+		</div>
+
+		<div class="secao">
+			<h2 class="negociacao">${messages.dashboard_negociacao}</h2>
+			<section class="negociacaoAlta">
+			</section>
+
+			<section class="negociacaoMedia">
+			</section>
+
+			<section class="negociacaoBaixa">
+			</section>
+		</div>
+
+		<div class="secao">
+			<h2 class="desfecho">${messages.dashboard_desfecho}</h2>
+			<section class="ganhamos">
+			</section>
+
+			<section class="perdemos">
+			</section>
+
+			<section class="onHold">
+			</section>
+		</div>
 	</template>
 
 	<script>

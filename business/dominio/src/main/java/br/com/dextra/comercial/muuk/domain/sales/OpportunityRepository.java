@@ -10,6 +10,8 @@ public interface OpportunityRepository extends BaseEntityRepository {
 
 	public List<Opportunity> findByStatus(String status);
 
+	public List<Opportunity> findByStatusAndYear(String status, Integer year);
+
 	public List<Opportunity> findByStatus(List<String> status);
 
 }
