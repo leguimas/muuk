@@ -1,6 +1,8 @@
 
 Muuk.dashboard = {};
 
+Muuk.dashboard.MAX_OPPORTUNITIES = 10;
+
 Muuk.dashboard.load = function() {
 	Muuk.dashboard.loadOpportunities('Refinamento', 'Refinamento', 'section.refinamento');
 	Muuk.dashboard.loadOpportunities('OrdemGrandeza', 'Ordem de Grandeza', 'section.ordemGrandeza');
@@ -24,7 +26,7 @@ Muuk.dashboard.loadYearOpportunities = function(statusCode, statusName, seletor)
 		dataType : 'json',
 		success : function(opportunities) {
 			var originalSize = opportunities.length;
-			$.holy("templates/opportunities/opportunities.xml?t=" + new Date().getTime(), { 'opportunities' : opportunities.splice(0, 6), 'status' : statusName, 'seletor' : seletor, 'originalSize' : originalSize });
+			$.holy("templates/opportunities/opportunities.xml?t=" + new Date().getTime(), { 'opportunities' : opportunities.splice(0, Muuk.dashboard.MAX_OPPORTUNITIES), 'status' : statusName, 'seletor' : seletor, 'originalSize' : originalSize });
 		}
 	});
 }
@@ -36,7 +38,7 @@ Muuk.dashboard.loadOpportunities = function(statusCode, statusName, seletor) {
 		dataType : 'json',
 		success : function(opportunities) {
 			var originalSize = opportunities.length;
-			$.holy("templates/opportunities/opportunities.xml?t=" + new Date().getTime(), { 'opportunities' : opportunities.splice(0, 6), 'status' : statusName, 'seletor' : seletor, 'originalSize' : originalSize });
+			$.holy("templates/opportunities/opportunities.xml?t=" + new Date().getTime(), { 'opportunities' : opportunities.splice(0, Muuk.dashboard.MAX_OPPORTUNITIES), 'status' : statusName, 'seletor' : seletor, 'originalSize' : originalSize });
 		}
 	});
 }

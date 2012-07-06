@@ -42,7 +42,6 @@ public class OpportunityRS {
 	public String findOpportunitiesByStatusInYear(@PathParam("status") String status) {
 		Integer year = new GregorianCalendar().get(Calendar.YEAR);
 		List<Opportunity> opportunitiesList = repository.findByStatusAndYear(status, year);
-		Collections.sort(opportunitiesList, new OpportunityBusinessExecutiveComparator());
 
 		return new JSONObject(opportunitiesList).toJson();
 	}
