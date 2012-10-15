@@ -3,6 +3,8 @@ use sugar_db;
 SET NAMES utf8;
 --
 select CONCAT(IFNULL(con.first_name, ''), ' ', IFNULL(con.last_name, '')) "Contato",
+       IFNULL(con.first_name, '') "Nome",
+       IFNULL(con.last_name, '') "Sobrenome",
        acc.name "Conta",
        emlAddPri.email_address "Email Primário",
        emlAddSec.email_address "Email Secundário",
@@ -27,6 +29,6 @@ from contacts con
      left join email_addr_bean_rel emlConSec on emlConSec.bean_id = con.id and emlConSec.bean_module = 'Contacts' and emlConSec.deleted = 0 and emlConSec.primary_address = 0
      left join email_addresses emlAddSec on emlConSec.email_address_id = emlAddSec.id and emlAddSec.deleted = 0
 where con.deleted = 0
-order by 2, 1, 3;
+order by acc.name, con.first_name, con.last_name;
 --
 \q
