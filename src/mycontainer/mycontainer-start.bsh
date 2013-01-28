@@ -45,10 +45,24 @@ try {
 	// Datasource configuration
 	DataSourceDeployer ds = builder.createDeployer(DataSourceDeployer.class);
 	ds.setName("java:/SugarDS");
+	// **********************************************************************
+	// MySQL Connection
+	// **********************************************************************
 	ds.setDriver("com.mysql.jdbc.Driver");
 	ds.setUrl("jdbc:mysql://localhost:3306/sugar_db");
 	ds.setUser("root");
 	ds.setPass("root");
+	// **********************************************************************
+
+	// **********************************************************************
+	// HSQLDB Connection
+	// **********************************************************************
+	//ds.setDriver("org.hsqldb.jdbcDriver");
+	//String userHome = System.getProperty("user.home");
+	//ds.setUrl("jdbc:hsqldb:file:" + userHome + "/muuk/data");
+	// **********************************************************************
+
+
 	ds.deploy();
 
 	// JPA configuration
@@ -62,7 +76,7 @@ try {
 	// Hibernate configuration
 	Properties props = info.getProperties();
 	props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-	props.setProperty("hibernate.hbm2ddl.auto", "validate");
+	props.setProperty("hibernate.hbm2ddl.auto", "update");
 	props.setProperty("hibernate.show_sql", "false");
 	props.setProperty("hibernate.transaction.auto_close_session", "true");
 
