@@ -7,7 +7,7 @@ caption, th, td {text-align: left; font-weight: normal;}
 blockquote:before, blockquote:after, q:before, q:after {content: "";}
 blockquote, q { quotes: "" "";}
 
-
+f
 /* ##################################
    ################################## */
 body {
@@ -16,12 +16,13 @@ body {
 	font-size: 14px; }
 
 header, div[role="main"], footer {
-	width: 950px;
-	margin: 0 auto; }
+	padding:0 25px; 
+	overflow-y:hidden;}
 
 header {
 	text-align: center;
 	height: 80px;
+	margin-bottom:10px;
 	display: none; }
 
 header.alerta {
@@ -35,7 +36,7 @@ header h1 {
 header h1 {
 	display: none;
 	font-family: "Handlee", script;
-	font-size: 24px; }
+	font-size: 200%; }
 
 header .indicadores {
 	height: 70px;
@@ -62,29 +63,30 @@ header .indicadores li.aguardando-time span#spnTotalAguardandoTime {
 
 h2 {
 	font-family: "Handlee", script;
-	font-size: 24px;
+	font-size: 32px;
 	color: #505038;
 	background: rgba(255, 255, 0, 0.2);
-    margin: 0 0 10px -5%;
+	border-top:solid 1px rgba(55, 55, 0, 0.15);
+	border-bottom:solid 1px rgba(55, 55, 0, 0.15);
+    margin: 5px 0 15px -5%;
     padding: 9px 5% 7px 5%;
     width: 100%; }
 
 section {
 	width: 100%;
 	padding: 0 0 10px 0;
-	margin: 0 0 10px 0;
-	border-bottom: 1px solid rgba(0,0,0, .15); }
+	margin: 0 -10px 10px -10px; }
 
 section h3 {
 	width: 310px;
 	background-color: white;
-	font-size: 18px;
+	font-size: 135%;
 	font-family: "Andika", sans-serif;
 	color: #006d9b;
 	display: inline-block;
 	border: 1px solid #dbdbdb;
-	padding: 7px 0 10px 55px;
-	margin: 0 0 15px -30px;
+	padding: 9px 0 12px 39px;
+	margin: 0 0 25px -30px;
 	border-radius: 0 0 0 15px / 0 0 0 5px;
 	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05);
 	position: relative;
@@ -93,27 +95,34 @@ section h3 {
 .proposta {
 	display: inline-block;
 	vertical-align: top;
-	width: 146px;
-	min-height: 90px;
+	width: 16.5%;
+	position:relative;
+	min-height: 145px;
 	background: #fdfaec;
-	padding: 10px 10px 5px 10px;
+	padding: 14px 14px 8px 14px;
 	position: relative;
-	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.12);
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.12),inset 0 -5px 5px rgba(0,0,0, 0.075);
 	top: 0;
+	border-radius:1px;
+	margin:0 10px 24px;
 	-webkit-transition: top 0.2s;
     -moz-transition: top 0.2s; }
 
 .proposta .opportunityName {
 	display: block;
-	font-size: 13px;
-	margin: 0 0 8px 0;
-	color: rgba(0, 0, 0, .7); }
+	font-size: 115%;
+	line-height:115%;
+	margin: 0 0 12px 0;
+	text-shadow:0 -1px 0 rgba(0, 0, 0, .03);
+	color: rgba(0, 0, 0, .75); }
 
 .proposta .accountName {
 	display: block;
-	font-size: 10px;
+	font-size: 102.5%;
+	line-height:110%;
+	text-shadow:0 -1px 0 rgba(0, 0, 0, .03);
 	text-transform: uppercase;
-	color: rgba(0, 0, 0, .6); }
+	color: rgba(0, 0, 0, .60); }
 
 .proposta:hover {
 	top: -10px; }
@@ -131,28 +140,30 @@ section h3 {
     opacity: .15; }
 
 .proposta ul {
-	display: block;
-	height: 30px;
-	overflow: hidden;
-	bottom: 0;
-	margin: 10px 0 2px 0; }
+	position:absolute;
+	width:225px;
+	left:12px;
+	bottom:6px;
+	height:40px;
+	overflow:hidden;}
 
 .proposta ul li a {
 	display: block;
-	height: 28px;
+	height: 36px;
 	overflow: hidden; }
 
 .proposta ul li {
 	display: inline-block;
-	width: 28px;
-	height: 28px;
+	margin-right:2px;
+	width: 36px;
+	height: 36px;
 	border: 1px solid rgba(0, 0, 0, .4);
-	border-radius: 14px;
+	border-radius: 26px;
 	overflow: hidden;
 }
 
 .proposta ul li img {
-	max-width: 28px;
+	max-width: 36px;
 	display: inline;
 }
 
