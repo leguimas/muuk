@@ -18,30 +18,30 @@
 	<repositories>
 		<repository>
 			<id>mycontainer</id>
-			<url>http://repo.pyrata.org/release/maven2/</url>
+			<url>http://mvncache:8081/nexus/content/repositories/mycontainer/</url>
 		</repository>
 		<repository>
 			<id>dextra</id>
-			<url>https://mvn.dextra.com.br/repository/releases/</url>
+			<url>http://mvncache:8081/nexus/content/repositories/dextra/</url>
 		</repository>
 		<repository>
 			<id>maven-central</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/central/</url>
+			<url>http://mvncache:8081/nexus/content/repositories/central/</url>
 		</repository>
                 <repository>
                         <id>jboss-releases</id>
-                        <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+                        <url>http://mvncache:8081/nexus/content/repositories/mirror-jboss-releases/</url>
                 </repository>
                 <repository>
                         <id>jboss-thirdparty-releases</id>
-                        <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/</url>
+                        <url>http://mvncache:8081/nexus/content/repositories/mirror-jboss-thirdparty-release/</url>
                 </repository>
 	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
 			<id>mycontainer</id>
-			<url>http://repo.pyrata.org/release/maven2/</url>
+			<url>http://mvncache:8081/nexus/content/repositories/mycontainer/</url>
 		</pluginRepository>
 	</pluginRepositories>
 

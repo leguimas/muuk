@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.Level;
 import org.apache.log4j.PatternLayout;
 
+import br.com.dextra.common.database.*;
 import br.com.dextra.common.infra.*;
 import br.com.dextra.common.persistence.*;
 
@@ -43,25 +44,25 @@ try {
 	jta.deploy();
 
 	// Datasource configuration
+	String datasourceName = new String("java:/SugarDS"); 
 	DataSourceDeployer ds = builder.createDeployer(DataSourceDeployer.class);
-	ds.setName("java:/SugarDS");
+	ds.setName(datasourceName);
 	// **********************************************************************
 	// MySQL Connection
 	// **********************************************************************
-	ds.setDriver("com.mysql.jdbc.Driver");
-	ds.setUrl("jdbc:mysql://localhost:3306/sugar_db");
-	ds.setUser("root");
-	ds.setPass("root");
+	//ds.setDriver("com.mysql.jdbc.Driver");
+	//ds.setUrl("jdbc:mysql://localhost:3306/sugar_db");
+	//ds.setUser("root");
+	//ds.setPass("root");
 	// **********************************************************************
 
 	// **********************************************************************
 	// HSQLDB Connection
 	// **********************************************************************
-	//ds.setDriver("org.hsqldb.jdbcDriver");
-	//String userHome = System.getProperty("user.home");
-	//ds.setUrl("jdbc:hsqldb:file:" + userHome + "/muuk/data");
+	ds.setDriver("org.hsqldb.jdbcDriver");
+	String userHome = System.getProperty("user.home");
+	ds.setUrl("jdbc:hsqldb:file:" + userHome + "/muuk/data");
 	// **********************************************************************
-
 
 	ds.deploy();
 
@@ -69,7 +70,7 @@ try {
 	JPADeployer jpa = builder.createDeployer(JPADeployer.class);
 	JPAInfoBuilder info = (JPAInfoBuilder) jpa.getInfo();
 	info.setPersistenceUnitName("sugar-pu");
-	info.setJtaDataSourceName("java:/SugarDS");
+	info.setJtaDataSourceName(datasourceName);
 	info.addJarFileUrl(BaseEntity.class);
 	info.setPersistenceUnitRootUrl(BaseEntityRepository.class);
 
@@ -101,6 +102,7 @@ try {
 
 	webServer.deploy();
 
+	DatabaseManager.runManager(datasourceName);
 	builder.waitFor();
 
 } catch (Exception e) {

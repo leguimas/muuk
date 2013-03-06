@@ -38,6 +38,7 @@
 	</servlet-mapping>
 
 	<!-- Authentication Filter -->
+	<!--
 	<filter>
 		<filter-name>AuthenticationFilter</filter-name>
 		<filter-class>br.com.dextra.common.security.login.DextraAuthenticationFilter</filter-class>
@@ -50,6 +51,7 @@
 		<filter-name>AuthenticationFilter</filter-name>
 		<url-pattern>/s/*</url-pattern>
 	</filter-mapping>
+	-->
 
 	<!-- LDAP login servlet - You have to define the ldapserver host -->
 	<servlet>
