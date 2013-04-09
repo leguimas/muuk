@@ -1,4 +1,4 @@
 muuk
 ====
 
-Um dashboard para a visualizaÃ§Ã£o das oportunidades gerenciadas pelo sugar.
+Projeto criado para visualização das oportunidades de negócios, gerenciadas no Sugar, em um board na televisão. Com a utilização do Pipedrive, este projeto foi descontinuado não sendo mais mantido ou atualizado.
