@@ -17,31 +17,31 @@
 
 	<repositories>
 		<repository>
-			<id>mycontainer</id>
-			<url>http://mvncache:8081/nexus/content/repositories/mycontainer/</url>
+			<id>mirror-mycontainer</id>
+			<url>https://dextranet.dextra.com.br/nexus/content/repositories/mirror-mycontainer/</url>
 		</repository>
 		<repository>
-			<id>dextra</id>
-			<url>http://mvncache:8081/nexus/content/repositories/dextra/</url>
+			<id>dextra-public-release</id>
+			<url>https://dextranet.dextra.com.br/nexus/content/repositories/dextra-public-release/</url>
 		</repository>
 		<repository>
-			<id>maven-central</id>
-			<url>http://mvncache:8081/nexus/content/repositories/central/</url>
+			<id>mirror-central</id>
+			<url>https://dextranet.dextra.com.br/nexus/content/repositories/mirror-central/</url>
 		</repository>
                 <repository>
-                        <id>jboss-releases</id>
-                        <url>http://mvncache:8081/nexus/content/repositories/mirror-jboss-releases/</url>
+                        <id>mirror-jboss-release</id>
+                        <url>https://dextranet.dextra.com.br/nexus/content/repositories/mirror-jboss-release/</url>
                 </repository>
                 <repository>
                         <id>jboss-thirdparty-releases</id>
-                        <url>http://mvncache:8081/nexus/content/repositories/mirror-jboss-thirdparty-release/</url>
+                        <url>https://dextranet.dextra.com.br/nexus/content/repositories/mirror-jboss-thirdparty-release/</url>
                 </repository>
 	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>mycontainer</id>
-			<url>http://mvncache:8081/nexus/content/repositories/mycontainer/</url>
+			<id>mirror-mycontainer</id>
+			<url>https://dextranet.dextra.com.br/nexus/content/repositories/mirror-mycontainer/</url>
 		</pluginRepository>
 	</pluginRepositories>
 
